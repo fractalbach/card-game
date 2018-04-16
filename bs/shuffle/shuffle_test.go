@@ -5,20 +5,14 @@ import (
 )
 
 func TestMakeInts(t *testing.T) {
-	a, err := MakeInts(1, 10)
-	if err != nil {
-		t.Errorf("unexpected error %v", err)
-	}
+	a := MakeInts(1, 10)
 	t.Log(a)
-	a, err = MakeInts(-1, -5)
-	if err == nil {
-		t.Error("there should have been an error", a)
-	}
-	t.Log(a, err)
+	a = MakeInts(-1, -5)
+	t.Log(a)
 }
 
 func TestBasic(t *testing.T) {
-	a, _ := MakeInts(1, 10)
+	a := MakeInts(1, 10)
 	t.Log(a)
 	a = ShuffleInts(a)
 	t.Log(a)
@@ -32,7 +26,7 @@ func TestMakers(t *testing.T) {
 }
 
 func TestRandomness(t *testing.T) {
-	a, _ := MakeInts(1, 10)
+	a := MakeInts(1, 10)
 	for i := 0; i < 10; i++ {
 		a = ShuffleInts(a)
 		t.Log(a)
